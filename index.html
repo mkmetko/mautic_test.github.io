@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mautic Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+    .banner {
+      background: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .weblayer {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <h1>Welcome to Mautic Test Page</h1>
+    <p>Track clicks, banner views, and trigger weblayers!</p>
+  </div>
+
+  <a href="#" class="btn" onclick="trackEvent('ButtonClick1')">Click Me 1</a>
+  <a href="#" class="btn" onclick="trackEvent('ButtonClick2')">Click Me 2</a>
+
+  <div class="weblayer" id="weblayer">
+    <p>This is a Weblayer Popup!</p>
+    <a href="#" onclick="hideWeblayer()">Close</a>
+  </div>
+
+  <script>
+    function trackEvent(eventName) {
+      console.log('Tracking Event:', eventName);
+      // Here you would call Mautic tracking API
+      // Example: mauticTracker.trackEvent(eventName);
+    }
+
+    function showWeblayer() {
+      document.getElementById('weblayer').style.display = 'block';
+    }
+
+    function hideWeblayer() {
+      document.getElementById('weblayer').style.display = 'none';
+    }
+
+    // Example trigger to show weblayer after 5 seconds
+    setTimeout(showWeblayer, 5000);
+  </script>
+
+</body>
+</html>
